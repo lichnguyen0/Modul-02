@@ -1,3 +1,5 @@
+package Array_And_Methods_In_Java;
+
 import java.util.Scanner;
 
 public class TimValueMin {
