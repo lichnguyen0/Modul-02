@@ -83,6 +83,7 @@ public class ContactManager {
             }
         }
     }
+
     // Ghi danh bạ ra file
     public void readFromFile() {
         contacts.clear();
@@ -113,5 +114,4 @@ public class ContactManager {
             System.out.println(">> Lỗi ghi file: " + e.getMessage());
         }
     }
-    //còn thiếu phần đọc & ghi file
 }

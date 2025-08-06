@@ -14,7 +14,9 @@ public class Contact {
     }
 
     public Contact() {
-    };
+    }
+
+    ;
 
     //get & set
     public String getPhoneNumber() {
