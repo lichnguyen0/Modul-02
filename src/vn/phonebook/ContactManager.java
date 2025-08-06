@@ -1,13 +1,16 @@
-package com.phonebook;
+package vn.phonebook;
 
-import java.sql.SQLOutput;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class ContactManager {
     public ArrayList<Contact> contacts;
 
+    private static final String FILE_NAME = "C:\\Users\\DungG\\Java\\Module-02\\src\\file\\contact.txt";
 
+
+    //contruc
     public ContactManager() {
         contacts = new ArrayList<>();
     }
@@ -63,7 +66,7 @@ public class ContactManager {
             }
         }
         if (!found) {
-            System.out.println("Khôn tìm thấy kết quả.");
+            System.out.println("Không tìm thấy kết quả.");
         }
     }
 
@@ -80,4 +83,35 @@ public class ContactManager {
             }
         }
     }
+    // Ghi danh bạ ra file
+    public void readFromFile() {
+        contacts.clear();
+        try (BufferedReader reader = new BufferedReader(new FileReader(FILE_NAME))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                Contact c = Contact.fromDataString(line);
+                if (c != null) {
+                    contacts.add(c);
+                }
+            }
+        } catch (FileNotFoundException e) {
+            System.out.println(">> File chưa tồn tại. Sẽ tạo file mới khi ghi.");
+        } catch (IOException e) {
+            System.out.println(">> Lỗi khi đọc file: " + e.getMessage());
+        }
+    }
+
+    // Ghi file
+    public void writeToFile() {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(FILE_NAME))) {
+            for (Contact c : contacts) {
+                writer.write(c.toDataString());
+                writer.newLine();
+            }
+            System.out.println(">> Đã ghi dữ liệu vào file.");
+        } catch (IOException e) {
+            System.out.println(">> Lỗi ghi file: " + e.getMessage());
+        }
+    }
+    //còn thiếu phần đọc & ghi file
 }

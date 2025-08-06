@@ -1,4 +1,4 @@
-package com.phonebook;
+package vn.phonebook;
 
 import java.util.Scanner;
 
@@ -7,6 +7,10 @@ public class MainContact {
 
         ContactManager manager = new ContactManager();
         Scanner sca = new Scanner(System.in);
+
+        // Đọc file ngay khi khởi động
+        manager.readFromFile();
+
 
         while (true) {
             System.out.println("\n===== MENU =====");
@@ -31,14 +35,17 @@ public class MainContact {
                     System.out.print("Nhập email: ");
                     String email = sca.nextLine();
                     manager.addContact(new Contact(phone, name, email));
+                    manager.writeToFile(); // Ghi file sau khi thêm
                     break;
                 case 3:
                     System.out.print("Nhập số điện thoại cần cập nhật: ");
                     manager.updateContact(sca.nextLine());
+                    manager.writeToFile(); // Ghi file sau khi cập nhật
                     break;
                 case 4:
                     System.out.print("Nhập số điện thoại cần xóa: ");
                     manager.deleteContact(sca.nextLine());
+                    manager.writeToFile(); // Ghi file sau khi xóa
                     break;
                 case 5:
                     System.out.print("Nhập từ khóa tên: ");

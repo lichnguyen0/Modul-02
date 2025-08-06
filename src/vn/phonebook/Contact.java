@@ -1,4 +1,4 @@
-package com.phonebook;
+package vn.phonebook;
 
 public class Contact {
 
@@ -45,5 +45,18 @@ public class Contact {
     @Override
     public String toString() {
         return phoneNumber + ", " + name + ", " + email;
+    }
+
+
+    public String toDataString() {
+        return phoneNumber + "," + name + "," + email;
+    }
+
+    public static Contact fromDataString(String line) {
+        String[] parts = line.split(",");
+        if (parts.length == 3) {
+            return new Contact(parts[0].trim(), parts[1].trim(), parts[2].trim());
+        }
+        return null;
     }
 }
