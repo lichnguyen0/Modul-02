@@ -1,4 +1,4 @@
-package com.casestudy.dictionary;
+package comm.casestudy.dictionary;
 
 public class DictionaryManager {
 }
