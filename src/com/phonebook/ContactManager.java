@@ -84,7 +84,7 @@ public class ContactManager {
         }
     }
 
-    // Ghi danh bạ ra file
+    // doc file
     public void readFromFile() {
         contacts.clear();
         try (BufferedReader reader = new BufferedReader(new FileReader(FILE_NAME))) {
