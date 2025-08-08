@@ -61,7 +61,7 @@ public class Book {
 
 
     public String toDataString() {
-        return "ID: " + id + ", " + "Title: " + title + ", " + "Author: " + author + ", " + "Trạng thái mượn: " + isBorrowed;
+        return id + "," + title + "," + author + "," + isBorrowed;
     }
 
 
