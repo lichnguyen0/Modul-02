@@ -40,9 +40,24 @@ public class MainLibrary {
                     manager.writeToFile(); // Ghi file sau khi thêm
                     break;
                 case 3:
-                    System.out.print("Nhập mã sách cần cập nhật: ");
-                    manager.updateBook(sca.nextLine());
-                    manager.writeToFile(); // Ghi file sau khi cập nhật
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                 manager.writeToFile(); // Ghi file sau khi cập nhật
                     break;
                 case 4:
                     System.out.print("Nhập mã sách cần xoá: ");
