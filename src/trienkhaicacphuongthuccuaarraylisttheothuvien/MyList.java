@@ -1,7 +1,6 @@
 package trienkhaicacphuongthuccuaarraylisttheothuvien;
 
 
-
 public class MyList<E> {
 
     private int size = 0;
