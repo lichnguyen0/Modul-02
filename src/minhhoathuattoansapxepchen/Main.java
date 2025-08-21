@@ -7,7 +7,7 @@ public class Main {
         InsertionSort sorter = new InsertionSort();
 
         //nhap mang
-        int[] list = sorter.nhapVao(0); // Tham số n không cần thiết
+        int[] list = sorter.nhapVao(0);
 
         // Hiển thị mảng ban đầu
         System.out.println("\nMảng ban đầu:");
