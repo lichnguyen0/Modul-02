@@ -15,7 +15,7 @@ public class Main {
         try {
             System.out.println("Giá trị của phần tử có chỉ số 5" + x + " là " + arr[x]);
         } catch (IndexOutOfBoundsException a) {
-            System.out.println(" Chỉ số vượt quá giới hạn của mảng");
+            System.err.println("Chỉ số vượt quá giới hạn của mảng"); //chú ý dòng này sử dụng System.err luồng chuẩn để in thông báo lỗi, chứ không phải System.out
         }
     }
 }
