@@ -19,6 +19,7 @@ public class Main {
             double c = sc.nextDouble();
 
             testTamGiac(a, b, c);
+
             System.out.println("Tam giác hợp lệ");
         } catch (IllegalTriangleException e) {
             System.err.println("Lỗi" + e.getMessage());
