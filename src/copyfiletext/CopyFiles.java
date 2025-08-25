@@ -18,11 +18,11 @@ public class CopyFiles {
         System.out.println("Nhập đường dẫn tệp đích:");
         String targetFileName = sc.nextLine();
 
-        File sourceFile = new File(sourceFileName);
-        File targetFile = new File(targetFileName);
+        File sourceFile = new File(sourceFileName); // tạo đối tượng đại diện cho file để sau này mở luồng đọc hoặc ghi.
+        File targetFile = new File(targetFileName); //tạo đối tượng đại diện cho file để sau này mở luồng đọc hoặc ghi.
 
         //Kiểm tra tồn tại file nguồn
-        if (sourceFile.exists()) {
+        if (!sourceFile.exists()) {
             System.out.println("File không tồn tại");
             return;
         }
@@ -34,12 +34,16 @@ public class CopyFiles {
 
         int charCount = 0; // biến đếm ký tự
 
-        FileReader fr = null;
-        FileWriter fw = null;
+        FileReader fr = null;  //là luồng đọc ký tự từ file text.
+                              //Đây là khai báo biến fr kiểu FileReader.
+                             //Chưa mở file thực sự, chỉ tạo biến trỏ tới luồng đọc.
+                            //Mục đích khai báo null trước là để có thể mở file trong try và đóng luồng trong finally sau này:
+
+        FileWriter fw = null;  //là luồng ghi ký tự vào file text.
 
         try {
-            fr = new FileReader(sourceFile);
-            fw = new FileWriter(targetFile);
+            fr = new FileReader(sourceFile);  //mở file nguồn để đọc ký tự.
+            fw = new FileWriter(targetFile); //mở file đích để ghi ký tự (hoặc tạo mới file nếu chưa tồn tại).
 
             int c;
             while ((c = fr.read()) != -1) {
@@ -60,5 +64,6 @@ public class CopyFiles {
                 System.out.println("Lỗi khi đóng file: "+ e.getMessage() );
             }
         }
+        sc.close();
     }
 }
