@@ -51,12 +51,23 @@ public class FileUtil {
         try (BufferedWriter bw = new BufferedWriter(new FileWriter(filePath))) {
             for (Student s : studentList) {
                 // Tạo dòng CSV từ đối tượng Student
-                String line = s.getName() + "," +
+//                String line = s.getName() + "," +
+//                        s.getAge() + "," +
+//                        s.getId() + "," +
+//                        s.getEmail() + "," +
+//                        s.getPhoneNumber() + "," +
+//                        s.getGPA();
+//
+                //dùng cách trên hoặc cách dưới cách dưới phải ta thêm class StringUtils để sử dụng
+                //cách này để chuyển sang chữ hoa khi in
+                String normalizedName = StringUtils.normalizeName(s.getName());
+                String line = normalizedName + "," +
                         s.getAge() + "," +
                         s.getId() + "," +
                         s.getEmail() + "," +
                         s.getPhoneNumber() + "," +
                         s.getGPA();
+
                 bw.write(line);   // Ghi dòng vào file
                 bw.newLine();     // Xu
             }

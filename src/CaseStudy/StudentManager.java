@@ -20,7 +20,7 @@ public class StudentManager {
         String id;
         do {
             System.out.print("Nhập ID sinh viên: ");
-            id = sc.nextLine();
+            id = sc.nextLine().trim().toUpperCase(); // .trim().toUpperCase() để chuyển chữ hoa
             if (!Validate.validateId(id)) {
                 System.out.println("ID không hợp lệ! ID bắt đầu phải là SV, độ dài phải là 6 ký tự.😥");
             }
@@ -62,7 +62,12 @@ public class StudentManager {
             System.out.println("Danh sách sinh viên trống");
         } else {
             for (Student sinhvien : studentList) {
-                System.out.println(sinhvien);
+                // Chuẩn hóa tên khi hiển thị
+                String displayName = StringUtils.normalizeName(sinhvien.getName());
+                System.out.println("Student{name='" + displayName + "', age=" + sinhvien.getAge() +
+                        ", id='" + sinhvien.getId() + "', email='" + sinhvien.getEmail() +
+                        "', phoneNumber='" + sinhvien.getPhoneNumber() + "', GPA=" + sinhvien.getGPA() + "}");
+                //System.out.println(sinhvien);
             }
         }
     }
@@ -70,7 +75,7 @@ public class StudentManager {
     //tim sinh vien theo
     public void searchById() {
         System.out.println("Nhập ID cần tìm kiếm");
-        String id = sc.next();
+        String id = sc.next().trim().toUpperCase(); // .trim().toUpperCase() để chuyển chữ hoa.
         boolean show = false;
         for (Student sinhvien : studentList) {
             if (sinhvien.getId().equalsIgnoreCase(id)) {
@@ -87,7 +92,7 @@ public class StudentManager {
     //delete sinh vien theo ID
     public void deleteById() {
         System.out.print("Nhập ID sinh viên cần xoá: ");
-        String id = sc.next();
+        String id = sc.next().trim().toUpperCase(); // .trim().toUpperCase() để chuyển chữ hoa.
         boolean delete = false;
         for (int i = 0; i < studentList.size(); i++) {
             if (studentList.get(i).getId().equalsIgnoreCase(id)) {
@@ -134,7 +139,7 @@ public class StudentManager {
                 String newId;
                 do {
                     System.out.print("Nhập ID sinh viên: ");
-                    newId = sc.nextLine();
+                    newId = sc.nextLine().trim().toUpperCase(); // .trim().toUpperCase() để chuyển chữ hoa.
                     if (!Validate.validateId(newId)) {
                         System.out.println("ID không hợp lệ! ID bắt đầu phải là SV, tổng độ dài phải là 6 ký tự.😥");
                     }
