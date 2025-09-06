@@ -6,8 +6,8 @@ import java.util.Scanner;
 public class DemoManager {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        String path = "file/students.txt";
-        String path1 = "file/gpa.txt";
+        String path = "file/students.csv";
+        String path1 = "file/gpa.csv";
 
         StudentManager student = new StudentManager();
 
@@ -17,13 +17,11 @@ public class DemoManager {
             student.addStudentFromFile(s);
         }
 
-
         int choice;
-
         do {
             System.out.println("=====Menu=====");
             System.out.println("1. Thêm thông tin sinh viên");
-            System.out.println("2. Hiển thị danh sách học sinh");
+            System.out.println("2. Hiển thị danh sách sinh viên");
             System.out.println("3. Tìm kiếm sinh viên theo ID");
             System.out.println("4. Xoá sinh viên theo ID");
             System.out.println("5. Sửa và cập nhật thông tin sinh viên");

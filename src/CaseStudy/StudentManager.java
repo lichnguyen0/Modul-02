@@ -15,14 +15,40 @@ public class StudentManager {
         String name = sc.nextLine();
         System.out.print("Nhập tuổi: ");
         int age = Integer.parseInt(sc.nextLine());
-        System.out.print("Nhập ID sinh viên: ");
-        String id = sc.nextLine();
-        System.out.print("Nhâp Email: ");
-        String email = sc.nextLine();
-        System.out.print("Nhập số điện thoại: ");
-        String phoneNumber = sc.nextLine();
+
+        //Validate Id
+        String id;
+        do {
+            System.out.print("Nhập ID sinh viên: ");
+            id = sc.nextLine();
+            if (!Validate.validateId(id)) {
+                System.err.println("ID không hợp lệ! ID bắt đầu phải là SV, độ dài phải là 6 ký tự.");
+                System.out.println("");
+            }
+        } while (!Validate.validateId(id));
+
+        // validate Email
+        String email;
+        do {
+            System.out.print("Nhâp Email: ");
+            email = sc.nextLine();
+            if (!Validate.validateEmail(email)) {
+                System.out.println("Email không hợp lệ vui lòng nhập đúng! Ví dụ: abc@gmail.com");
+            }
+        } while (!Validate.validateEmail(email));
+
+        // validate số điện thoại
+        String phoneNumber;
+        do {
+            System.out.print("Nhập số điện thoại: ");
+            phoneNumber = sc.nextLine();
+            if (!Validate.validatePhone(phoneNumber)) {
+                System.out.println("Số điện thoại không hợp lệ! Phải có 10 chữ số và bắt đầu bằng 08 or 09.");
+            }
+        } while (!Validate.validatePhone(phoneNumber));
+
         System.out.println("Nhập điểm trung bình học tập");
-        float GPA = Float.parseFloat(sc.nextLine()); //định dạng là 8.8 dùng dấu "phẩy" là sai
+        float GPA = Float.parseFloat(sc.nextLine()); //định dạng đúng là 8.8 nếu dùng dấu "phẩy" là sai
 
         Student sv = new Student(name, age, id, email, phoneNumber, GPA);
         studentList.add(sv);
@@ -83,7 +109,7 @@ public class StudentManager {
         }
     }
 
-    // sửa thông tin sinh viên
+    // sửa thông tin sinh viên (có validate)
     public void updateStudentInformation() {
         System.out.println("Nhập ID sinh viên cần chỉnh sửa: ");
         String id = sc.nextLine();
@@ -103,12 +129,38 @@ public class StudentManager {
                 String newName = sc.nextLine();
                 System.out.print("Nhập tuổi: ");
                 int newAge = Integer.parseInt(sc.nextLine()); // chuyển string thành số nguyên
-                System.out.print("Nhập ID sinh viên: ");
-                String newId = sc.nextLine();
-                System.out.print("Nhập email: ");
-                String newEmail = sc.nextLine();
-                System.out.print("Nhập số điện thoại: ");
-                String newPhoneNumber = sc.nextLine();
+
+                // validate ID mới
+                String newId;
+                do {
+                    System.out.print("Nhập ID sinh viên: ");
+                    newId = sc.nextLine();
+                    if (!Validate.validateId(newId)) {
+                        System.err.println("ID không hợp lệ! ID bắt đầu phải là SV, tổng độ dài phải là 6 ký tự.");
+                    }
+                } while (!Validate.validateId(newId));
+
+                // validate email mới
+                String newEmail;
+                do {
+                    System.out.print("Nhập email: ");
+                    newEmail = sc.nextLine();
+                    if (!Validate.validateEmail(newEmail)) {
+                        System.out.println("Email không hợp lệ vui lòng nhập đúng! Ví dụ: abc@gmail.com");
+                    }
+                } while (!Validate.validateEmail(newEmail));
+
+                // validate số điện thoại mới
+                String newPhoneNumber;
+                do {
+                    System.out.print("Nhập số điện thoại: ");
+                    newPhoneNumber = sc.nextLine();
+                    if (!Validate.validatePhone(newPhoneNumber)) {
+                        System.out.println("Số điện thoại không hợp lệ! Phải có 10 chữ số và bắt đầu bằng 08 or 09.");
+                    }
+                } while (!Validate.validatePhone(newPhoneNumber));
+
+
                 System.out.print("Nhập điểm trung bình học tập: ");
                 float GPA = Float.parseFloat(sc.nextLine()); // chuyển string thành float
 
@@ -135,7 +187,6 @@ public class StudentManager {
             System.out.println("Danh sách sinh viên trống!");
             return;
         }
-
         for (int i = 1; i < studentList.size(); i++) {
             Student key = studentList.get(i);
             int j = i - 1;
@@ -154,9 +205,7 @@ public class StudentManager {
         studentList.add(s);
     }
 
-
     public ArrayList<Student> getStudentList() {
         return studentList;
     }
-
 }
