@@ -22,8 +22,7 @@ public class StudentManager {
             System.out.print("Nhập ID sinh viên: ");
             id = sc.nextLine();
             if (!Validate.validateId(id)) {
-                System.err.println("ID không hợp lệ! ID bắt đầu phải là SV, độ dài phải là 6 ký tự.");
-                System.out.println("");
+                System.out.println("ID không hợp lệ! ID bắt đầu phải là SV, độ dài phải là 6 ký tự.😥");
             }
         } while (!Validate.validateId(id));
 
@@ -33,7 +32,7 @@ public class StudentManager {
             System.out.print("Nhâp Email: ");
             email = sc.nextLine();
             if (!Validate.validateEmail(email)) {
-                System.out.println("Email không hợp lệ vui lòng nhập đúng! Ví dụ: abc@gmail.com");
+                System.out.println("Email không hợp lệ vui lòng nhập đúng! Ví dụ: abc@gmail.com 😥");
             }
         } while (!Validate.validateEmail(email));
 
@@ -43,9 +42,10 @@ public class StudentManager {
             System.out.print("Nhập số điện thoại: ");
             phoneNumber = sc.nextLine();
             if (!Validate.validatePhone(phoneNumber)) {
-                System.out.println("Số điện thoại không hợp lệ! Phải có 10 chữ số và bắt đầu bằng 08 or 09.");
+                System.out.println("Số điện thoại không hợp lệ! Phải có 10 chữ số và bắt đầu bằng 08 or 09.😥");
             }
         } while (!Validate.validatePhone(phoneNumber));
+
 
         System.out.println("Nhập điểm trung bình học tập");
         float GPA = Float.parseFloat(sc.nextLine()); //định dạng đúng là 8.8 nếu dùng dấu "phẩy" là sai
@@ -136,7 +136,7 @@ public class StudentManager {
                     System.out.print("Nhập ID sinh viên: ");
                     newId = sc.nextLine();
                     if (!Validate.validateId(newId)) {
-                        System.err.println("ID không hợp lệ! ID bắt đầu phải là SV, tổng độ dài phải là 6 ký tự.");
+                        System.out.println("ID không hợp lệ! ID bắt đầu phải là SV, tổng độ dài phải là 6 ký tự.😥");
                     }
                 } while (!Validate.validateId(newId));
 
@@ -146,7 +146,7 @@ public class StudentManager {
                     System.out.print("Nhập email: ");
                     newEmail = sc.nextLine();
                     if (!Validate.validateEmail(newEmail)) {
-                        System.out.println("Email không hợp lệ vui lòng nhập đúng! Ví dụ: abc@gmail.com");
+                        System.out.println("Email không hợp lệ vui lòng nhập đúng! Ví dụ: abc@gmail.com 😥");
                     }
                 } while (!Validate.validateEmail(newEmail));
 
@@ -156,7 +156,7 @@ public class StudentManager {
                     System.out.print("Nhập số điện thoại: ");
                     newPhoneNumber = sc.nextLine();
                     if (!Validate.validatePhone(newPhoneNumber)) {
-                        System.out.println("Số điện thoại không hợp lệ! Phải có 10 chữ số và bắt đầu bằng 08 or 09.");
+                        System.out.println("Số điện thoại không hợp lệ! Phải có 10 chữ số và bắt đầu bằng 08 or 09.😥");
                     }
                 } while (!Validate.validatePhone(newPhoneNumber));
 

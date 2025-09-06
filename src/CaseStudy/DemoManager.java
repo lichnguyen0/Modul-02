@@ -27,40 +27,45 @@ public class DemoManager {
             System.out.println("5. Sửa và cập nhật thông tin sinh viên");
             System.out.println("6. Sắp xếp hiển thị danh sách sinh viên có điểm GPA cao nhất.");
             System.out.println("0. Thoát chương trình");
-            System.out.println("Chọn chức năng: ");
-            choice = Integer.parseInt(sc.nextLine());
+            System.out.print("Chọn chức năng: ");
 
-            switch (choice) {
-                case 1:
-                    student.addStudent();
-                    FileUtil.writeFile(path, student.getStudentList()); // lưu file
-                    break;
-                case 2:
-                    student.showStudentList();
-                    break;
-                case 3:
-                    student.searchById();
-                    break;
-                case 4:
-                    student.deleteById();
-                    FileUtil.writeFile(path, student.getStudentList()); // lưu file
-                    break;
-                case 5:
-                    student.updateStudentInformation();
-                    FileUtil.writeFile(path, student.getStudentList()); // lưu file
-                    break;
-                case 6:
-                    student.sortGPA();
-                    FileUtil.writeFile(path1, student.getStudentList()); // lưu file
-                    System.out.println("Danh sách GPA giảm dần đã lưu vào " + path1);
-                    break;
-                case 0:
-                    System.out.println("Thoát chương trình.");
-                    break;
-                default:
-                    System.out.println("Lựa chọn không hợp lệ.");
-                    break;
-            }
+try {
+    choice = Integer.parseInt(sc.nextLine());
+    switch (choice) {
+        case 1:
+            student.addStudent();
+            FileUtil.writeFile(path, student.getStudentList()); // lưu file
+            break;
+        case 2:
+            student.showStudentList();
+            break;
+        case 3:
+            student.searchById();
+            break;
+        case 4:
+            student.deleteById();
+            FileUtil.writeFile(path, student.getStudentList()); // lưu file
+            break;
+        case 5:
+            student.updateStudentInformation();
+            FileUtil.writeFile(path, student.getStudentList()); // lưu file
+            break;
+        case 6:
+            student.sortGPA();
+            FileUtil.writeFile(path1, student.getStudentList()); // lưu file
+            System.out.println("Danh sách GPA giảm dần đã lưu vào " + path1);
+            break;
+        case 0:
+            System.out.println("Thoát chương trình.");
+            break;
+        default:
+            System.out.println("Lựa chọn không hợp lệ! vui lòng nhập số từ 0 - 6.");
+            break;
+    }
+} catch (NumberFormatException e) {
+    System.err.println("Vui lòng nhập một số nguyên hợp lệ (0–6) trong Menu.");
+    choice = -1; // gán ngoài menu để tiếp tục vòng lặp
+}
         } while (choice != 0);
     }
 }
